@@ -10,8 +10,8 @@ class UserModel {
   String? email;
   String? member_status;
   String? image_profile;
+  int? dPoint;
   String? token;
-
   UserModel({
     required this.id,
     required this.member_id_key,
@@ -22,6 +22,7 @@ class UserModel {
     required this.email,
     required this.member_status,
     required this.image_profile,
+    required this.dPoint,
     required this.token,
   });
 
@@ -35,6 +36,7 @@ class UserModel {
     email = json['email'];
     image_profile = json['image_profile'];
     member_status = json['member_status'];
+    dPoint = json['dPoint'];
     token = json['token'];
   }
 
@@ -49,6 +51,7 @@ class UserModel {
       'email': email,
       'member_status': member_status,
       'image_profile': image_profile,
+      'dPoint': dPoint,
       'token': token,
     };
   }

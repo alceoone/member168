@@ -7,6 +7,7 @@ import 'pages/sign_up_page.dart';
 import 'pages/splash_page.dart';
 import 'providers/auth_provider.dart';
 import 'providers/store_provider.dart';
+import 'providers/tr_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => StoreProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => TrProvider(),
         ),
       ],
       child: MaterialApp(

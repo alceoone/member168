@@ -20,6 +20,7 @@ class _BerandaPageState extends State<BerandaPage> {
   @override
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    authProvider.userget();
     UserModel? user = authProvider.user;
 
     print(user);
@@ -223,7 +224,7 @@ class _BerandaPageState extends State<BerandaPage> {
                                         style: TextStyle(fontSize: 12),
                                       ),
                                       Text(
-                                        "1.000.000",
+                                        "${user?.dPoint}",
                                         style: TextStyle(fontSize: 16),
                                       ),
                                     ],

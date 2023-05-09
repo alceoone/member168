@@ -6,7 +6,7 @@ import '../models/user_model.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService {
-  String baseUrl = 'https://beta.ilufa.co.id/api';
+  String baseUrl = 'https://18d5-36-68-11-13.ngrok-free.app/api';
 
   Future<UserModel> register({
     required String f_name,
@@ -68,6 +68,8 @@ class AuthService {
       user.token = 'Bearer ' + data['access_token'];
       SharedPreferences localStorage = await SharedPreferences.getInstance();
       localStorage.setString('token', data['access_token']);
+      // localStorage.setString('userMemberId', data['user']['member_id_key']);
+
       return user;
     } else {
       throw Exception('Gagal Login');

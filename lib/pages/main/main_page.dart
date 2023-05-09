@@ -4,7 +4,9 @@ import 'package:ilufa_168/pages/main/store/store_page.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../models/user_model.dart';
 import '../../providers/auth_provider.dart';
+import '../../providers/tr_provider.dart';
 import '../../services/auth_service.dart';
 import '../../theme.dart';
 import 'account/account_page.dart';
@@ -23,6 +25,17 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel? user = authProvider.user;
+    String? userMemberId = user?.member_id_key;
+    TrProvider trProvider = Provider.of<TrProvider>(context);
+    if (trProvider.tr.isEmpty) {
+      trProvider.getTr(userMemberId!);
+      print('is empty');
+    } else {
+      print('Not empty');
+    }
+
     Widget cartButton() {
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 20.0),

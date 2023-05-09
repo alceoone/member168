@@ -40,11 +40,13 @@ class CardPromo1Page extends StatelessWidget {
             children: [
               Text("Promo",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
-              Text("Lihat Semua",
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.deepOrange,
-                      fontWeight: FontWeight.w400)),
+              Text(
+                "Lihat Semua",
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.deepOrange,
+                    fontWeight: FontWeight.w400),
+              ),
             ],
           ),
         ),

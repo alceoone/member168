@@ -126,7 +126,7 @@ class _AccountPageState extends State<AccountPage> {
                                             style: TextStyle(fontSize: 12),
                                           ),
                                           Text(
-                                            "1000",
+                                            "${user?.dPoint}",
                                             style: TextStyle(fontSize: 16),
                                           ),
                                         ],
@@ -157,7 +157,7 @@ class _AccountPageState extends State<AccountPage> {
                                             ),
                                           ),
                                           Text(
-                                            "3",
+                                            "0",
                                             style: TextStyle(fontSize: 16),
                                           ),
                                         ],
