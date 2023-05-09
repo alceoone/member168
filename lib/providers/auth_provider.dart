@@ -67,4 +67,17 @@ class AuthProvider with ChangeNotifier {
       return true;
     }
   }
+
+  Future<bool> updatePointCek(String userMemberId, int cekPoint) async {
+    try {
+      UserModel user =
+          await AuthService().updatePointCek(userMemberId, cekPoint);
+      _user = user;
+      return true;
+    } catch (e) {
+      // ignore: avoid_print
+      print(e);
+      return true;
+    }
+  }
 }

@@ -101,4 +101,23 @@ class AuthService {
       throw Exception('Gagal Login');
     }
   }
+
+  Future<UserModel> updatePointCek(userMemberId, cekPoint) async {
+    var url = Uri.parse('$baseUrl/tr/app/$userMemberId/$cekPoint/cek/');
+
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    String? token = localStorage.getString('token');
+    var response = await http.get(
+      url as Uri,
+      headers: {'Authorization': 'Bearer $token'},
+    );
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body)['data'];
+      UserModel user = UserModel.fromJson(data['user']);
+      user.token = 'Bearer $token';
+      return user;
+    } else {
+      throw Exception('Gagal Login');
+    }
+  }
 }

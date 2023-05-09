@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:ilufa_168/pages/main/history/history_page.dart';
 import 'package:ilufa_168/pages/main/store/store_page.dart';
@@ -25,14 +27,26 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Provider.of<AuthProvider>(context, listen: false).updatePointCek();
+
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel? user = authProvider.user;
     String? userMemberId = user?.member_id_key;
+    int? cekPoint = user?.dPoint as int?;
     TrProvider trProvider = Provider.of<TrProvider>(context);
+
+    // Timer.periodic(Duration(seconds: 1), (timer) {
+    //   Provider.of<AuthProvider>(context, listen: false)
+    //       .updatePointCek(userMemberId!, cekPoint! as int);
+    // });
+
     if (trProvider.tr.isEmpty) {
       trProvider.getTr(userMemberId!);
       print('is empty');
     } else {
+      Provider.of<AuthProvider>(context, listen: false)
+          .updatePointCek(userMemberId!, cekPoint! as int);
+
       print('Not empty');
     }
 

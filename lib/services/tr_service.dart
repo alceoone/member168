@@ -9,7 +9,7 @@ import '../models/tr_model.dart';
 class TrService {
   String baseUrl = 'https://18d5-36-68-11-13.ngrok-free.app/api';
   Future<List<TrModel>> getTr(String userMemberId) async {
-    print(userMemberId);
+    // print(userMemberId);
     var url = Uri.parse('$baseUrl/tr/app/$userMemberId/invoices');
     var headers = {'Content-Type': 'application/json'};
 
