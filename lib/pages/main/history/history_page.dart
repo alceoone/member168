@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../../models/user_model.dart';
 import '../../../providers/auth_provider.dart';
 import '../../../providers/tr_provider.dart';
+import 'point_stamp/body_point_stamp_view.dart';
 import 'riwayat/body_view.dart';
 
 class HistoryPage extends StatefulWidget {
@@ -28,13 +29,13 @@ class _HistoryPageState extends State<HistoryPage> {
   // }
 
   Widget build(BuildContext context) {
-    // AuthProvider authProvider = Provider.of<AuthProvider>(context);
-    // UserModel? user = authProvider.user;
-    // String? userMemberId = user?.member_id_key;
-    // Provider.of<TrProvider>(context).getTr(userMemberId!);
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel? user = authProvider.user;
+    String? userMemberId = user?.member_id_key;
+    Provider.of<TrProvider>(context).getTr(userMemberId!);
 
     return DefaultTabController(
-      initialIndex: 0,
+      initialIndex: 1,
       length: 2,
       child: Scaffold(
         appBar: AppBar(
@@ -54,11 +55,8 @@ class _HistoryPageState extends State<HistoryPage> {
         ),
         body: const TabBarView(
           children: <Widget>[
-            // Text("data 1"),
-            // Text("data 2"),
             BodyRiwayatView(),
-            BodyRiwayatView(),
-            // BodyPointStampView(),
+            BodyPointStampView(),
           ],
         ),
       ),

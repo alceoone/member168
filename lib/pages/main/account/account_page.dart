@@ -53,7 +53,9 @@ class _AccountPageState extends State<AccountPage> {
                       image: DecorationImage(
                           fit: BoxFit.cover,
                           image: NetworkImage(
-                              'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-53591465/no-brand_no-brand_full01.jpg')),
+                              'https://cdn.icon-icons.com/icons2/1369/PNG/512/-account-circle_89831.png'
+                              // 'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-53591465/no-brand_no-brand_full01.jpg',
+                              )),
                     ),
                   ),
                   SizedBox(height: 10),

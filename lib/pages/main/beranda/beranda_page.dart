@@ -22,6 +22,35 @@ class _BerandaPageState extends State<BerandaPage> {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     authProvider.userget();
     UserModel? user = authProvider.user;
+    String? userMemberId = user?.member_id_key;
+    int? cekPoint = user?.dPoint as int?;
+
+    _refresh() async {
+      AuthProvider authProvider =
+          Provider.of<AuthProvider>(context, listen: false);
+      // .updatePointCek(userMemberId!, cekPoint! as int);
+      if (await authProvider.updatePointCek(userMemberId!, cekPoint! as int)) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: alertColor,
+            content: Text(
+              "Refresh Berhasil",
+              textAlign: TextAlign.center,
+            ),
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: alertSuccesColor,
+            content: Text(
+              "The Data Has Been Updated",
+              textAlign: TextAlign.center,
+            ),
+          ),
+        );
+      }
+    }
 
     print(user);
 
@@ -43,7 +72,9 @@ class _BerandaPageState extends State<BerandaPage> {
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                            'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-53591465/no-brand_no-brand_full01.jpg'),
+                            'https://cdn.icon-icons.com/icons2/1369/PNG/512/-account-circle_89831.png'
+                            // 'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-53591465/no-brand_no-brand_full01.jpg',
+                            ),
                       ),
                     ),
                   ),
@@ -166,8 +197,7 @@ class _BerandaPageState extends State<BerandaPage> {
                   flex: 5,
                   child: GestureDetector(
                     onTap: () {
-                      // print("Container clicked");
-                      // Get.to(const CoinView());
+                      Navigator.pushNamed(context, '/points');
                     },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 5),
@@ -250,8 +280,7 @@ class _BerandaPageState extends State<BerandaPage> {
                   flex: 5,
                   child: GestureDetector(
                     onTap: () {
-                      // print("Container clicked");
-                      // Get.to(const StampView());
+                      Navigator.pushNamed(context, '/update-page');
                     },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 5),
@@ -306,7 +335,7 @@ class _BerandaPageState extends State<BerandaPage> {
                                       style: TextStyle(fontSize: 12),
                                     ),
                                     Text(
-                                      "3",
+                                      "0",
                                       style: TextStyle(fontSize: 16),
                                     ),
                                   ],
@@ -338,8 +367,7 @@ class _BerandaPageState extends State<BerandaPage> {
                   flex: 5,
                   child: GestureDetector(
                     onTap: () {
-                      // print("Container clicked");
-                      // Get.to(const RewardView());
+                      Navigator.pushNamed(context, '/update-page');
                     },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 5),
@@ -420,8 +448,7 @@ class _BerandaPageState extends State<BerandaPage> {
                   flex: 5,
                   child: GestureDetector(
                     onTap: () {
-                      // print("Container clicked");
-                      // Get.to(const StampView());
+                      Navigator.pushNamed(context, '/update-page');
                     },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 5),
@@ -505,18 +532,27 @@ class _BerandaPageState extends State<BerandaPage> {
     }
 
     return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Header(),
-            SizedBox(height: 10),
-            CardPromoView(),
-            SizedBox(height: 10),
-            CardMenuPointStamp(),
-            SizedBox(height: 10),
-            CardPromo1Page(),
-          ],
+      child: RefreshIndicator(
+        onRefresh: _refresh,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Header(),
+              SizedBox(height: 10),
+              CardPromoView(),
+              SizedBox(height: 10),
+              CardMenuPointStamp(),
+              SizedBox(height: 10),
+              CardPromo1Page(),
+            ],
+          ),
         ),
+        displacement: 20.0,
+        color: Colors.blue,
+        backgroundColor: Colors.white,
+        strokeWidth: 3.0,
+        semanticsLabel: 'Pull to refresh',
+        semanticsValue: 'Refresh',
       ),
     );
   }

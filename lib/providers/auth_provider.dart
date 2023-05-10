@@ -77,7 +77,7 @@ class AuthProvider with ChangeNotifier {
     } catch (e) {
       // ignore: avoid_print
       print(e);
-      return true;
+      return false;
     }
   }
 }

@@ -250,7 +250,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         style: primaryTextStyle,
                         controller: noTelpConttroller,
                         decoration: InputDecoration.collapsed(
-                          hintText: 'Your First Name',
+                          hintText: 'Your No Telp',
                           hintStyle: subtitleTextStyle,
                         ),
                       ),
@@ -461,11 +461,9 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       backgroundColor: backgroundColor1,
       resizeToAvoidBottomInset: false,
-      body: SafeArea(
-        child: Container(
-          margin: EdgeInsets.symmetric(
-            horizontal: defaultMargin,
-          ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: ListView(
             children: [
               header(),
@@ -476,8 +474,11 @@ class _SignUpPageState extends State<SignUpPage> {
               emailInput(),
               passwordInput(),
               isLoading ? LoadingButton() : signInButton(),
+
+              SizedBox(height: 30),
               // Spacer(),
               footer(),
+              SizedBox(height: 350),
             ],
           ),
         ),

@@ -27,8 +27,6 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Provider.of<AuthProvider>(context, listen: false).updatePointCek();
-
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel? user = authProvider.user;
     String? userMemberId = user?.member_id_key;
@@ -39,6 +37,10 @@ class _MainPageState extends State<MainPage> {
     //   Provider.of<AuthProvider>(context, listen: false)
     //       .updatePointCek(userMemberId!, cekPoint! as int);
     // });
+    // _refresh() async {
+    //   Provider.of<AuthProvider>(context, listen: false)
+    //       .updatePointCek(userMemberId!, cekPoint! as int);
+    // }
 
     if (trProvider.tr.isEmpty) {
       trProvider.getTr(userMemberId!);
@@ -46,7 +48,6 @@ class _MainPageState extends State<MainPage> {
     } else {
       Provider.of<AuthProvider>(context, listen: false)
           .updatePointCek(userMemberId!, cekPoint! as int);
-
       print('Not empty');
     }
 
@@ -123,6 +124,20 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       backgroundColor: backgroundColor1,
       bottomNavigationBar: customBottomNav(),
+      // body: SafeArea(
+      //   child: RefreshIndicator(
+      //     onRefresh: _refresh,
+      //     child: Builder(builder: (context) {
+      //       return bodyData();
+      //     }),
+      //     displacement: 20.0,
+      //     color: Colors.blue,
+      //     backgroundColor: Colors.white,
+      //     strokeWidth: 3.0,
+      //     semanticsLabel: 'Pull to refresh',
+      //     semanticsValue: 'Refresh',
+      //   ),
+      // ),
       body: bodyData(),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ilufa_168/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -52,7 +53,17 @@ class _QrCodePageState extends State<QrCodePage> {
             //     ),
             //   ),
             // ),
-            SizedBox(height: 50),
+            SizedBox(height: 30),
+            Center(
+              child: Text(
+                '${user?.member_id_key}',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: medium,
+                ),
+              ),
+            ),
+            SizedBox(height: 30),
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -85,7 +96,7 @@ class _QrCodePageState extends State<QrCodePage> {
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

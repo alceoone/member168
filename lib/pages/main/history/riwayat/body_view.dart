@@ -24,6 +24,7 @@ class _BodyRiwayatViewState extends State<BodyRiwayatView> {
       return GestureDetector(
         onTap: () {
           // print("Container clicked");
+          // Get.to(const DetailFakturView());
         },
         child: Container(
           child: Padding(
@@ -102,39 +103,40 @@ class _BodyRiwayatViewState extends State<BodyRiwayatView> {
       );
     }
 
-    return Column(
-      children: [
-        Container(
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                color: Colors.grey[200],
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Riwayat Pembelian",
-                      style: TextStyle(fontSize: 12),
-                    ),
-                    Text(
-                      "Lihat Semua",
-                      style: TextStyle(fontSize: 12, color: Colors.deepOrange),
-                    ),
-                  ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
+            child: Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  color: Colors.grey[200],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Riwayat Pembelian",
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      Text(
+                        "Lihat Semua",
+                        style:
+                            TextStyle(fontSize: 12, color: Colors.deepOrange),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              SingleChildScrollView(
-                child: Container(
+                Container(
                   child: Column(
                     children: trProvider.tr.map((tr) => box(tr)).toList(),
                   ),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

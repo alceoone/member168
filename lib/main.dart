@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ilufa_168/pages/point/point_page.dart';
 import 'package:provider/provider.dart';
 
+import 'pages/error/update_page.dart';
 import 'pages/main/main_page.dart';
 import 'pages/sign_in_page.dart';
 import 'pages/sign_up_page.dart';
@@ -39,6 +41,8 @@ class MyApp extends StatelessWidget {
           '/sign-in': (context) => const SignInPage(),
           '/sign-up': (context) => SignUpPage(),
           '/main': (context) => const MainPage(),
+          '/points': (context) => const PointPage(),
+          '/update-page': (context) => const UpdatePage(),
         },
         // home: SplashPage()
       ),
