@@ -7,8 +7,9 @@ import 'package:http/http.dart' as http;
 import '../models/tr_model.dart';
 
 class TrService {
-  String baseUrl = 'https://6997-36-68-11-13.ngrok-free.app/api';
-  // String baseUrl = 'https://beta.ilufa.co.id/api';
+  // String baseUrl = 'https://6997-36-68-11-13.ngrok-free.app/api';
+  String baseUrl = 'https://beta.ilufa.co.id/api';
+
   Future<List<TrModel>> getTr(String userMemberId) async {
     // print(userMemberId);
     var url = Uri.parse('$baseUrl/tr/app/$userMemberId/invoices');

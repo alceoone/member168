@@ -6,8 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 class StoreService {
-  String baseUrl = 'https://6997-36-68-11-13.ngrok-free.app/api';
-  // String baseUrl = 'https://beta.ilufa.co.id/api';
+  // String baseUrl = 'https://6997-36-68-11-13.ngrok-free.app/api';
+  String baseUrl = 'https://beta.ilufa.co.id/api';
 
   Future<List<StoreModel>> getStores() async {
     var url = Uri.parse('$baseUrl/store');

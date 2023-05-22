@@ -6,8 +6,8 @@ import '../models/user_model.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService {
-  String baseUrl = 'https://6997-36-68-11-13.ngrok-free.app/api';
-  // String baseUrl = 'https://beta.ilufa.co.id/api';
+  // String baseUrl = 'https://6997-36-68-11-13.ngrok-free.app/api';
+  String baseUrl = 'https://beta.ilufa.co.id/api';
 
   Future<UserModel> register({
     required String f_name,
@@ -16,6 +16,7 @@ class AuthService {
     required String username,
     required String email,
     required String password,
+    
   }) async {
     var url = Uri.parse('$baseUrl/register');
     var headers = {'Content-Type': 'application/json'};

@@ -42,7 +42,7 @@ class _StorePageState extends State<StorePage> {
           child: Column(
             children: [
               Image.network(
-                "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-53591465/no-brand_no-brand_full01.jpg",
+                'https://api.ilufa.co.id/storage/setting/store/D6JpNcePt95MKSdNynHurZUCI8LPXYCZwNqxVswr.jpg',
                 fit: BoxFit.fill,
                 width: double.infinity,
                 // width: 300,
