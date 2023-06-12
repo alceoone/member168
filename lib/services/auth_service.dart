@@ -16,7 +16,6 @@ class AuthService {
     required String username,
     required String email,
     required String password,
-    
   }) async {
     var url = Uri.parse('$baseUrl/register');
     var headers = {'Content-Type': 'application/json'};
