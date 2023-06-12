@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
@@ -23,6 +25,7 @@ class _BodyRiwayatViewState extends State<BodyRiwayatView> {
     Widget box(tr) {
       return GestureDetector(
         onTap: () {
+          Navigator.pushNamed(context, '/detail-transaksi', arguments: json.encode(tr));
           // print("Container clicked");
           // Get.to(const DetailFakturView());
         },

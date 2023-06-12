@@ -11,6 +11,8 @@ import 'providers/auth_provider.dart';
 import 'providers/store_provider.dart';
 import 'providers/tr_provider.dart';
 
+import 'pages/main/history/riwayat/detail_faktur_view.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -43,6 +45,7 @@ class MyApp extends StatelessWidget {
           '/main': (context) => const MainPage(),
           '/points': (context) => const PointPage(),
           '/update-page': (context) => const UpdatePage(),
+          '/detail-transaksi': (context) => const DetailFakturView(),
         },
         // home: SplashPage()
       ),

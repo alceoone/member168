@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
@@ -5,10 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:xml/xml.dart';
 
 class DetailFakturView extends StatelessWidget {
+  // final String tr;
   const DetailFakturView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final String tr = ModalRoute.of(context)!.settings.arguments as String;
+    final Map<String, dynamic> decodedData = json.decode(tr);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail Faktur Pembelian'),
@@ -25,7 +31,8 @@ class DetailFakturView extends StatelessWidget {
               width: double.infinity,
               child: Center(
                 child: Text(
-                  "iLuFA Jelas Lebih Murah",
+                  decodedData.toString(),
+                  // "iLuFA Jelas Lebih Murah",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                 ),
               ),

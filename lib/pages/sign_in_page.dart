@@ -19,6 +19,15 @@ class _SignInPageState extends State<SignInPage> {
 
   bool isLoading = false;
 
+  bool isButtonEnabled = false;
+  String inputValue = '';
+  void checkInput(String text) {
+    setState(() {
+      inputValue = text;
+      isButtonEnabled = (inputValue == '#PBETAILUFA168');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
@@ -168,13 +177,60 @@ class _SignInPageState extends State<SignInPage> {
       );
     }
 
+    Widget BetaProgramInput() {
+      return Container(
+        margin: EdgeInsets.only(top: 70.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '- Code Beta Program -',
+              style: primaryTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: medium,
+              ),
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(
+                horizontal: 16,
+              ),
+              decoration: BoxDecoration(
+                color: backgroundColor2,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        onChanged: checkInput,
+                        style: primaryTextStyle,
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Your Code',
+                          hintStyle: subtitleTextStyle,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      );
+    }
+
     Widget signInButton() {
       return Container(
         height: 50.0,
         width: double.infinity,
         margin: EdgeInsets.only(top: 30.0),
         child: TextButton(
-          onPressed: handleSingIn,
+          onPressed: isButtonEnabled ? handleSingIn : null,
           style: TextButton.styleFrom(
             backgroundColor: primaryColor,
             shape: RoundedRectangleBorder(
@@ -182,7 +238,7 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ),
           child: Text(
-            "Sign In",
+            isButtonEnabled ? "Sign In" : "Code Program Beta Harus di isi",
             style: primaryTextStyle.copyWith(
               fontSize: 16,
               fontWeight: medium,
@@ -233,6 +289,7 @@ class _SignInPageState extends State<SignInPage> {
               header(),
               emailInput(),
               passwordInput(),
+              BetaProgramInput(),
               isLoading ? LoadingButton() : signInButton(),
               Spacer(),
               footer(),
