@@ -63,18 +63,23 @@ class _BerandaPageState extends State<BerandaPage> {
               flex: 8,
               child: Row(
                 children: [
-                  Container(
-                    height: 55,
-                    width: 55,
-                    decoration: const BoxDecoration(
-                      color: Colors.grey,
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                            'https://cdn.icon-icons.com/icons2/1369/PNG/512/-account-circle_89831.png'
-                            // 'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-53591465/no-brand_no-brand_full01.jpg',
-                            ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/setting/profile');
+                    },
+                    child: Container(
+                      height: 55,
+                      width: 55,
+                      decoration: const BoxDecoration(
+                        color: Colors.grey,
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                              'https://cdn.icon-icons.com/icons2/1369/PNG/512/-account-circle_89831.png'
+                              // 'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//101/MTA-53591465/no-brand_no-brand_full01.jpg',
+                              ),
+                        ),
                       ),
                     ),
                   ),
@@ -105,10 +110,15 @@ class _BerandaPageState extends State<BerandaPage> {
             ),
             Expanded(
               flex: 1,
-              child: Icon(
-                FontAwesomeIcons.bell,
-                color: Colors.black,
-                size: 24.0,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/notifikasi');
+                },
+                child: Icon(
+                  FontAwesomeIcons.bell,
+                  color: Colors.black,
+                  size: 24.0,
+                ),
               ),
             ),
           ],
@@ -118,7 +128,7 @@ class _BerandaPageState extends State<BerandaPage> {
 
     List imgList = [
       // 'assets/images/promo/promo.png',
-      'https://i.ytimg.com/vi/_Dds6xJFSzA/hqdefault.jpg?sqp=-oaymwExCOADEI4CSFryq4qpAyMIARUAAIhCGAHwAQH4AdQGgALgA4oCDAgAEAEYfyBRKBkwDw==&rs=AOn4CLDLNsq6R6rcobMGzERdnhxJuZc1Cg',
+      // 'https://i.ytimg.com/vi/_Dds6xJFSzA/hqdefault.jpg?sqp=-oaymwExCOADEI4CSFryq4qpAyMIARUAAIhCGAHwAQH4AdQGgALgA4oCDAgAEAEYfyBRKBkwDw==&rs=AOn4CLDLNsq6R6rcobMGzERdnhxJuZc1Cg',
       'https://img.ws.mms.shopee.co.id/bf2e42a7a6b0769e5a21982dd196771a',
       'https://img.sp.mms.shopee.co.id/fcff8e02882b902396566517ab50a3fc'
     ];
@@ -448,7 +458,7 @@ class _BerandaPageState extends State<BerandaPage> {
                   flex: 5,
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '/update-page');
+                      Navigator.pushNamed(context, '/promo');
                     },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 5),

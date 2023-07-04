@@ -31,8 +31,8 @@ class DetailFakturView extends StatelessWidget {
               width: double.infinity,
               child: Center(
                 child: Text(
-                  decodedData.toString(),
-                  // "iLuFA Jelas Lebih Murah",
+                  // decodedData.toString(),
+                  "iLuFA Jelas Lebih Murah",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                 ),
               ),
@@ -41,7 +41,7 @@ class DetailFakturView extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 10),
               width: double.infinity,
               child: Text(
-                "No.Pesanan: 10-552502522",
+                "No.Pesanan: ${decodedData['nomorInvoice'].toString()}",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               ),
             ),
@@ -57,13 +57,13 @@ class DetailFakturView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Kasir: Sugeng 1",
+                            "Kasir: Admin",
                           ),
                           SizedBox(
                             height: 3,
                           ),
                           Text(
-                            "Sales: Sugeng 2",
+                            "Sales: Admin",
                           ),
                         ],
                       ),
@@ -79,7 +79,7 @@ class DetailFakturView extends StatelessWidget {
                         height: 3,
                       ),
                       Text(
-                        "Rp1.856.222",
+                        "Rpxxx.xxx,xx",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w500),
                       ),
@@ -95,7 +95,7 @@ class DetailFakturView extends StatelessWidget {
                       SizedBox(
                         height: 3,
                       ),
-                      Text("02/12/23"),
+                      Text("${decodedData['created'].toString()}"),
                     ],
                   ),
                 ),
@@ -112,30 +112,30 @@ class DetailFakturView extends StatelessWidget {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               ),
             ),
-            Row(
-              children: [
-                Expanded(
-                  flex: 7,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Softcase Redmi 10"),
-                      Text("Softcase Redmi 10"),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 3,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text("1x"),
-                      Text("Rp 10.000"),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Expanded(
+            //       flex: 7,
+            //       child: Column(
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: [
+            //           Text("Softcase Redmi 10"),
+            //           Text("Softcase Redmi 10"),
+            //         ],
+            //       ),
+            //     ),
+            //     Expanded(
+            //       flex: 3,
+            //       child: Column(
+            //         crossAxisAlignment: CrossAxisAlignment.end,
+            //         children: [
+            //           Text("1x"),
+            //           Text("Rp 10.000"),
+            //         ],
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),

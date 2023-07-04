@@ -1,36 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class CardPromo1Page extends StatelessWidget {
+import '../../../providers/promo_provider.dart';
+
+class CardPromo1Page extends StatefulWidget {
   const CardPromo1Page({super.key});
 
   @override
+  State<CardPromo1Page> createState() => _CardPromo1PageState();
+}
+
+class _CardPromo1PageState extends State<CardPromo1Page> {
+  @override
   Widget build(BuildContext context) {
-    List<dynamic> promo = [
-      {
-        "id": 1,
-        "date": "17 Mei - 20 Mei",
-        "deskripsi": "Promo Diskon di Blibli",
-        'image': "LANDING PAGE BLIBLI w HIPPO.png",
-      },
-      {
-        "id": 2,
-        "date": "17 Mei - 20 Mei",
-        "deskripsi": "Promo Diskon di Blibli",
-        'image': "LANDING PAGE BLIBLI w MEE.png",
-      },
-      {
-        "id": 3,
-        "date": "17 Mei - 20 Mei",
-        "deskripsi": "Promo Diskon di Blibli",
-        'image': "LANDING PAGE SHOPEE w HIPPO.png",
-      },
-      {
-        "id": 4,
-        "date": "17 Mei - 20 Mei",
-        "deskripsi": "Promo Diskon di Blibli",
-        'image': "LANDING PAGE TOKPED w MEE.png",
-      }
-    ];
+    PromoProvider promoProvider = Provider.of<PromoProvider>(context);
+
     return Column(
       children: [
         Padding(
@@ -40,12 +24,17 @@ class CardPromo1Page extends StatelessWidget {
             children: [
               Text("Promo",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
-              Text(
-                "Lihat Semua",
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.deepOrange,
-                    fontWeight: FontWeight.w400),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/promo');
+                },
+                child: Text(
+                  "Lihat Semua",
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.deepOrange,
+                      fontWeight: FontWeight.w400),
+                ),
               ),
             ],
           ),
@@ -55,20 +44,14 @@ class CardPromo1Page extends StatelessWidget {
           height: 230.0,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: promo.map((data) {
-              return box(
-                data["image"],
-                data["date"],
-                data["deskripsi"],
-              );
-            }).toList(),
+            children: promoProvider.promos.map((promo) => box(promo)).toList(),
           ),
         ),
       ],
     );
   }
 
-  Widget box(String dataImage, String dataDate, String dataDeskripsi) {
+  Widget box(promo) {
     return GestureDetector(
       onTap: () {
         // Get.to(const DetailPromoView());
@@ -93,8 +76,8 @@ class CardPromo1Page extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Image.asset(
-                "assets/image/${dataImage}",
+              Image.network(
+                "http://beta.ilufa.co.id${promo.image}",
                 fit: BoxFit.fitWidth,
                 width: 300,
                 height: 150.0,
@@ -108,18 +91,18 @@ class CardPromo1Page extends StatelessWidget {
                         // width: double.infinity,
                         width: 300,
                         child: Text(
-                          "${dataDeskripsi}",
+                          "${promo.title}",
                           style: TextStyle(fontSize: 14),
                         ),
                       ),
-                      Container(
-                        // width: double.infinity,
-                        width: 300,
-                        child: Text(
-                          "${dataDate}",
-                          style: TextStyle(fontSize: 10),
-                        ),
-                      ),
+                      // Container(
+                      //   // width: double.infinity,
+                      //   width: 300,
+                      //   child: Text(
+                      //     "${dataDate}",
+                      //     style: TextStyle(fontSize: 10),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

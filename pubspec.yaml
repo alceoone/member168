@@ -2,7 +2,7 @@ name: ilufa_168
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -16,10 +16,10 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.4
+version: 1.0.6
 
 environment:
-  sdk: '>=2.19.2 <3.0.0'
+  sdk: ">=2.19.2 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -40,8 +40,9 @@ dependencies:
   carousel_slider: ^4.2.1
   qr_flutter: ^4.0.0
   flutter_local_notifications: ^14.0.0+1
-
-
+  flutter_webview_plugin: ^0.4.0
+  webview_flutter: ^4.2.2
+  in_app_update: ^4.1.4
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
   change_app_package_name: ^1.1.0
@@ -59,7 +60,7 @@ flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/icons/icon_launcher.png"
-  min_sdk_android: 21 
+  min_sdk_android: 21
   # web:
   #   generate: true
   #   image_path: "path/to/image.png"
@@ -68,14 +69,14 @@ flutter_launcher_icons:
   # windows:
   #   generate: true
   #   image_path: "path/to/image.png"
-  #   icon_size: 48 
+  #   icon_size: 48
   # macos:
   #   generate: true
   #   image_path: "path/to/image.png"
 
 flutter:
   uses-material-design: true
-  
+
   assets:
     - assets/icons/icon.png
     - assets/icons/DISKON 10% feed.jpg
@@ -83,4 +84,3 @@ flutter:
     - assets/image/LANDING PAGE BLIBLI w MEE.png
     - assets/image/LANDING PAGE SHOPEE w HIPPO.png
     - assets/image/LANDING PAGE TOKPED w MEE.png
- 

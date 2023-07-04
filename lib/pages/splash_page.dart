@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/user_model.dart';
 import '../providers/auth_provider.dart';
+import '../providers/promo_provider.dart';
 import '../services/auth_service.dart';
 import '../theme.dart';
 
@@ -37,6 +38,8 @@ class _SplashPageState extends State<SplashPage> {
     } else {
       AuthProvider authProvider =
           Provider.of<AuthProvider>(context, listen: false);
+      await Provider.of<PromoProvider>(context, listen: false)
+          .getPromoLandingPages();
       await Provider.of<StoreProvider>(context, listen: false).getStores();
       if (await authProvider.userget()) {
         Timer(

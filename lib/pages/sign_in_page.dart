@@ -179,7 +179,7 @@ class _SignInPageState extends State<SignInPage> {
 
     Widget BetaProgramInput() {
       return Container(
-        margin: EdgeInsets.only(top: 70.0),
+        margin: EdgeInsets.only(top: 20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
